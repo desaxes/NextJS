@@ -18,7 +18,7 @@ export default User
 
 export async function getServerSideProps({ params }) {
     console.log(params)
-    const res = await fetch(('http://localhost:3030/characters/' + params.id))
+    const res = await fetch(('https://jsonplaceholder.typicode.com/users/' + params.id))
     const user = await res.json()
     return {
         props: { user }

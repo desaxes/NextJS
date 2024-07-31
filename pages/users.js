@@ -7,7 +7,7 @@ const Users = ({ users }) => {
             <MainContainer keywords={'users page'}>
                 <h1>Users Page</h1>
                 <ul>
-                    {users.chars.map(e => <li key={e.id}>
+                    {users.map(e => <li key={e.id}>
                         <Link href={'/users/' + e.id}>
                             <div className={s.link}>{e.name}</div>
                         </Link>
@@ -21,7 +21,7 @@ const Users = ({ users }) => {
 export default Users
 
 export async function getStaticProps(context) {
-    const res = await fetch('http://localhost:3030/characters')
+    const res = await fetch('https://jsonplaceholder.typicode.com/users')
     const users = await res.json()
     return {
         props: { users }
